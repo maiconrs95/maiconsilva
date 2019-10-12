@@ -8,14 +8,12 @@ import GlobalStyles from '../../styles/global';
 import { LayoutWrapper, LayoutMain } from './LayoutStyled';
 
 /* Global pages components */
-import { Profile } from '../';
+import { Sidebar } from '../';
 
 const Layout = ({ children }) => {
   return (
         <LayoutWrapper>
-            <aside>
-                <Profile />
-            </aside>
+            <Sidebar />
             <LayoutMain>{children}</LayoutMain>
             <GlobalStyles />
         </LayoutWrapper>

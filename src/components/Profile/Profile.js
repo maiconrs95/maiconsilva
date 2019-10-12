@@ -32,7 +32,7 @@ function Profile() {
 
     return (
         <ProfileWrapper>
-            <ProfileLink>
+            <ProfileLink to="/">
                 <Avatar />
                 <ProfileAuthor>
                     {title}
