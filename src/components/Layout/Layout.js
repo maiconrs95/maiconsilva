@@ -9,13 +9,15 @@ import { LayoutWrapper, LayoutMain } from './LayoutStyled';
 
 /* Global pages components */
 import { Sidebar } from '../';
+import MenuBar from '../MenuBar/MenuBar';
 
 const Layout = ({ children }) => {
   return (
         <LayoutWrapper>
+            <GlobalStyles />
             <Sidebar />
             <LayoutMain>{children}</LayoutMain>
-            <GlobalStyles />
+            <MenuBar />
         </LayoutWrapper>
     );
 }
