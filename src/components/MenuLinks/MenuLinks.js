@@ -1,12 +1,8 @@
 import React from 'react';
-
 import links from './content';
-import {
-    MenuLinksWrapper,
-    MenuLinksList,
-    MenuLinksItem,
-    MenuLinksLink,
-} from './MenuLinksStyled';
+
+/* Styled Components */
+import { MenuLinksWrapper, MenuLinksList, MenuLinksItem, MenuLinksLink } from './MenuLinksStyled';
 
 function MenuLinks() {
     return (

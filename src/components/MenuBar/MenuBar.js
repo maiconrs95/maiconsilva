@@ -1,18 +1,12 @@
 import React from 'react';
-
 import { Home } from 'styled-icons/boxicons-solid/Home';
 import { Search } from 'styled-icons/boxicons-regular/Search';
 import { UpArrowAlt as Arrow } from 'styled-icons/boxicons-regular/UpArrowAlt';
 import { Lightbulb as Light } from 'styled-icons/remix-line/Lightbulb';
 import { Grid } from 'styled-icons/boxicons-solid/Grid';
 
-
-import {
-    MenuBarWrapper,
-    MenuBarGroup,
-    MenuBarLink,
-    MenuBarItem,
-} from './MenuBarStyled';
+/* Styled Components */
+import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './MenuBarStyled';
 
 function MenuBar() {
     return (

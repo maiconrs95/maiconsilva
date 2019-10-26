@@ -1,6 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+/* Components */
+import { Avatar } from '../';
+
 /* Styled Components */
 import {
     ProfileWrapper,
@@ -9,9 +12,6 @@ import {
     ProfilePosition,
     ProfileDescription,
 } from './ProfileStyled';
-
-/* Components */
-import { Avatar } from '../';
 
 function Profile() {
     const {
