@@ -1,14 +1,34 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import { Layout } from "../components";
+import SEO from "../components/seo";
+
+/* Styled Components */
+import { PostHeader, PostTitle, PostDescription, PostDate, MainContent } from '../components/Post/PostStyled';
+
 function BlogSport({ data }) {
     const post = data.markdownRemark;
 
     return (
-        <>
-            <h1>{post.frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </>
+        <Layout>
+            <SEO title={post.frontmatter.title} />
+            <PostHeader>
+                <PostDate>
+                    {post.frontmatter.date} - {post.timeToRead} min de leitura
+                </PostDate>
+                <PostTitle>
+                    {post.frontmatter.title}
+                </PostTitle>
+                <PostDescription>
+                    {post.frontmatter.description}
+                </PostDescription>
+            </PostHeader>
+
+            <MainContent>
+                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </MainContent>
+        </Layout>
     );
 }
 
@@ -17,8 +37,11 @@ export const query = graphql`
         markdownRemark(fields: { slug: { eq: $slug }}) {
             frontmatter {
                 title
+                description
+                date(locale: "pt-br", formatString: "DD [de] MMM [de] YYYY")
             }
             html
+            timeToRead
         }
     }
 `;
