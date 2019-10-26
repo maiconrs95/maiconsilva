@@ -10,6 +10,9 @@ function IndexPage() {
         allMarkdownRemark {
             edges {
                 node {
+                    fields {
+                        slug
+                    }
                     frontmatter {
                     title
                     description
@@ -30,6 +33,9 @@ function IndexPage() {
             <SEO title="Home" />
             {postList.map(({
                 node: {
+                fields: {
+                    slug,
+                },
                 frontmatter: {
                     date, title, category, background, description,
                 },
@@ -37,7 +43,7 @@ function IndexPage() {
             }}, i) => (
                 <PostItem
                     key={i}
-                    slug="/about/"
+                    slug={slug}
                     background={background}
                     category={category}
                     date={date}
