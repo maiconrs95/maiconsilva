@@ -6,25 +6,26 @@ import { Layout, PostItem } from "../components";
 
 function IndexPage() {
     const { allMarkdownRemark } = useStaticQuery(graphql`
-    query PostList {
-        allMarkdownRemark {
-            edges {
-                node {
-                    fields {
-                        slug
+        query PostList {
+            allMarkdownRemark {
+                edges {
+                    node {
+                        fields {
+                            slug
+                        }
+                        frontmatter {
+                            title
+                            description
+                            category
+                            background
+                            date(formatString: "DD [de] MMM [de] YYYY", locale: "pt-br")
+                        }
+                        timeToRead
                     }
-                    frontmatter {
-                    title
-                    description
-                    category
-                    background
-                    date(formatString: "DD [de] MMM [de] YYYY", locale: "pt-br")
-                }
-                    timeToRead
                 }
             }
-        }
-    }`);
+        }`
+    );
 
     const postList = allMarkdownRemark.edges;
 
