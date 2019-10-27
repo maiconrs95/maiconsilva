@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, RecommendedPosts } from "../components";
 import SEO from "../components/seo";
+import { Layout, RecommendedPosts, Comments } from "../components";
 
 /* Styled Components */
 import { PostHeader, PostTitle, PostDescription, PostDate, MainContent } from '../components/Post/PostStyled';
@@ -29,10 +29,8 @@ function BlogSport({ data, pageContext }) {
             <MainContent>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </MainContent>
-            <RecommendedPosts
-                next={next}
-                previous={previous}
-            />
+            <RecommendedPosts next={next} previous={previous} />
+            <Comments url={post.fields.slug} title={post.frontmatter.title} />
         </Layout>
     );
 }
@@ -44,6 +42,9 @@ export const query = graphql`
                 title
                 description
                 date(locale: "pt-br", formatString: "DD [de] MMM [de] YYYY")
+            }
+            fields {
+                slug
             }
             html
             timeToRead

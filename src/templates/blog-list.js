@@ -5,11 +5,11 @@ import SEO from "../components/seo";
 import { Layout, PostItem, Pagination } from "../components";
 
 function BlogList(props) {
-    const { data, pageContext }     = props;
+    const { data, pageContext } = props;
     const { currentPage, numPages } = pageContext;
 
-    const isFirst  = currentPage === 1;
-    const isLast   = currentPage === numPages;
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numPages;
     const prevPage = (currentPage - 1 === 1) ? `/` : `/page/${currentPage - 1}`;
     const nextPage = `/page/${currentPage + 1}`;
 
@@ -20,25 +20,25 @@ function BlogList(props) {
             <SEO title="Home" />
             {postList.map(({
                 node: {
-                fields: {
-                    slug,
-                },
-                frontmatter: {
-                    date, title, category, background, description,
-                },
-                timeToRead,
-            }}, i) => (
-                <PostItem
-                    key={i}
-                    slug={slug}
-                    background={background}
-                    category={category}
-                    date={date}
-                    timeToRead={timeToRead}
-                    title={title}
-                    description={description}
-                />
-            ))}
+                    fields: {
+                        slug,
+                    },
+                    frontmatter: {
+                        date, title, category, background, description,
+                    },
+                    timeToRead,
+                } }, i) => (
+                    <PostItem
+                        key={i}
+                        slug={slug}
+                        background={background}
+                        category={category}
+                        date={date}
+                        timeToRead={timeToRead}
+                        title={title}
+                        description={description}
+                    />
+                ))}
 
             <Pagination
                 isFirst={isFirst}

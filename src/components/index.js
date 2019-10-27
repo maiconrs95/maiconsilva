@@ -8,6 +8,7 @@ export { default as MenuLinks } from './MenuLinks/MenuLinks';
 export { default as MenuBar } from './MenuBar/MenuBar';
 export { default as Pagination } from './Pagination/Pagination';
 export { default as RecommendedPosts } from './RecommendedPosts/Recommended';
+export { default as Comments } from './Comments/Comments';
 
 export { default as PostItem } from './PostItem/PostItem';
 
