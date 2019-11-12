@@ -10,6 +10,7 @@ const postsQuery = `{
                 }
                 frontmatter {
                     title
+                    background
                     description
                     category
                     date_timestamp: date
