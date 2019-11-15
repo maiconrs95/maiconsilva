@@ -12,7 +12,7 @@ const Comments = ({ url, title }) => {
         <CommentsWrapper>
             <CommentsTitle>Comentários</CommentsTitle>
             <ReactDisqusComments
-                shortname="maiconrs95"
+                shortname="maiconsilva"
                 identifier={completeURL}
                 title={title}
                 url={completeURL}
