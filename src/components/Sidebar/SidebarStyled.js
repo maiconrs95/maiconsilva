@@ -4,8 +4,8 @@ export const SidebarWrapper = styled.aside`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid #38444d;
-    background-color: #192734;
+    border-right: 1px solid var(--borders);
+    background-color: var(--mediumBackground);
     height: 100vh;
     position: fixed;
     padding: 2rem;

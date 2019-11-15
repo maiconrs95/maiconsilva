@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 export const MenuBarWrapper = styled.aside`
     display: flex;
     align-items: center;
-    background-color: #192734;
-    border-left: 1px solid #38444d;
+    background-color: var(--mediumBackground);
+    border-left: 1px solid var(--borders);
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
@@ -25,7 +25,7 @@ export const MenuBarLink = styled(Link)`
 `;
 
 export const MenuBarItem = styled.span`
-    color: #8899a6;
+    color: var(--texts);
     cursor: pointer;
     display: block;
     padding: 1.1rem;
@@ -34,6 +34,6 @@ export const MenuBarItem = styled.span`
     height: 3.75rem;
 
     &:hover {
-        color: #1fa1f2;
+        color: var(--highlight);
     }
 `;

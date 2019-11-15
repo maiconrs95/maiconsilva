@@ -57,7 +57,7 @@ PostItem.propTypes = {
 };
 
 PostItem.defaultProps = {
-    background: '#1fa1f2'
+    background: 'var(--highlight)'
 }
 
 export default PostItem;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-const color = '#8899a6';
+const color = 'var(--texts)';
 
 export const ProfileWrapper = styled.section`
     display: flex;
@@ -15,7 +15,7 @@ export const ProfileLink = styled(Link)`
     transition: color 0.5s;
 
     &:hover {
-        color: #1fa1f2;
+        color: var(--highlight);
     }
 `;
 
