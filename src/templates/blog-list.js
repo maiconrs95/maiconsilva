@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import SEO from "../components/seo";
 import { Layout, PostItem, Pagination } from "../components";
+import { ListWrapper } from '../components/ListWrapper/ListWrapperStyled';
 
 function BlogList(props) {
     const { data, pageContext } = props;
@@ -18,27 +19,29 @@ function BlogList(props) {
     return (
         <Layout>
             <SEO title="Home" />
-            {postList.map(({
-                node: {
-                    fields: {
-                        slug,
-                    },
-                    frontmatter: {
-                        date, title, category, background, description,
-                    },
-                    timeToRead,
-                } }, i) => (
-                    <PostItem
-                        key={i}
-                        slug={slug}
-                        background={background}
-                        category={category}
-                        date={date}
-                        timeToRead={timeToRead}
-                        title={title}
-                        description={description}
-                    />
-                ))}
+            <ListWrapper>
+                {postList.map(({
+                    node: {
+                        fields: {
+                            slug,
+                        },
+                        frontmatter: {
+                            date, title, category, background, description,
+                        },
+                        timeToRead,
+                    } }, i) => (
+                        <PostItem
+                            key={i}
+                            slug={slug}
+                            background={background}
+                            category={category}
+                            date={date}
+                            timeToRead={timeToRead}
+                            title={title}
+                            description={description}
+                        />
+                    ))}
+            </ListWrapper>
 
             <Pagination
                 isFirst={isFirst}
