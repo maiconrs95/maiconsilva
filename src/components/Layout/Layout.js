@@ -1,4 +1,5 @@
 import React from "react";
+import { TransitionPortal } from "gatsby-plugin-transition-link";
 import PropTypes from "prop-types";
 
 /* Global Styles */
@@ -11,18 +12,22 @@ import { Sidebar, MenuBar } from '../';
 import { LayoutWrapper, LayoutMain } from './LayoutStyled';
 
 const Layout = ({ children }) => {
-  return (
+    return (
         <LayoutWrapper>
             <GlobalStyles />
-            <Sidebar />
+            <TransitionPortal level="top">
+                <Sidebar />
+            </TransitionPortal>
             <LayoutMain>{children}</LayoutMain>
-            <MenuBar />
+            <TransitionPortal level="top">
+                <MenuBar />
+            </TransitionPortal>
         </LayoutWrapper>
     );
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default Layout

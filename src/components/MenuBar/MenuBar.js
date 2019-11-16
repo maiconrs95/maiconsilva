@@ -6,6 +6,8 @@ import { Lightbulb as Light } from 'styled-icons/remix-line/Lightbulb';
 import { Grid } from 'styled-icons/boxicons-solid/Grid';
 import { ThList as List } from 'styled-icons/typicons/ThList';
 
+import getThemeColor from '../../utils/getThemeColor';
+
 /* Styled Components */
 import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './MenuBarStyled';
 
@@ -30,12 +32,26 @@ function MenuBar() {
     return (
         <MenuBarWrapper>
             <MenuBarGroup>
-                <MenuBarLink to="/" title="Voltar para Home">
+                <MenuBarLink
+                    to="/"
+                    title="Voltar para Home"
+                    cover
+                    direction="right"
+                    bg={getThemeColor()}
+                    duration={0.6}
+                >
                     <MenuBarItem>
                         <Home />
                     </MenuBarItem>
                 </MenuBarLink>
-                <MenuBarLink to="/search/" title="Pesquisar">
+                <MenuBarLink
+                    to="/search/"
+                    title="Pesquisar"
+                    cover
+                    direction="right"
+                    bg={getThemeColor()}
+                    duration={0.6}
+                >
                     <MenuBarItem>
                         <Search />
                     </MenuBarItem>
