@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: maiconrs95/maiconsilva
+  branch: master
+  site_domain: https://maiconsilva.netlify.com/
+
+publish_mode: editorial_workflow
+
+media_folder: static/assets/img
+public_folder: assets/img
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: Title, label: title, widget: string }
+      - { name: Description, label: description, widget: string }
+      - { name: Date, label: date, widget: datetime, format: yyyy-mm-dd hh:mm:ss }
+      - { name: image, label: thumbnail, widget: image }
+
+      - {
+        label: Category,
+        name: category,
+        widget: select,
+        options: [html, css, js, dev, misc, nosql, sql, nodejs, react, rn]
+      }
+
+      - {
+        label: Backgeound,
+        name: background,
+        widget: select,
+        options: [
+            {
+                label: html,
+                value: #E5622A
+            }
+        ]
+      }
+
+      - { name: Body, label: body, widget: markdown }
