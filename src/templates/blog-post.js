@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import { Layout, RecommendedPosts, Comments } from "../components";
 
 /* Styled Components */
-import { PostHeader, PostTitle, PostDescription, PostDate, MainContent } from '../components/Post/PostStyled';
+import { PostHeader, PostTitle, PostDescription, PostDate, MainContent } from '../styles/base';
 
 function BlogSport({ data, pageContext }) {
     const post = data.markdownRemark;
