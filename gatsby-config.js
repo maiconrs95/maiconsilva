@@ -9,6 +9,7 @@ module.exports = {
         company: '<a href="https://ingresse.com" target="blank">Ingresse</a>',
         description: `Front End at`,
         author: `Maicon Silva`,
+        siteUrl: 'https://maiconsilva.me',
     },
     plugins: [
         `gatsby-plugin-transition-link`,
@@ -83,6 +84,7 @@ module.exports = {
                 // icon: `src/images/gatsby-icon.png`,
             },
         },
+        `gatsby-plugin-sitemap`,
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // `gatsby-plugin-offline`,

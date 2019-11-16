@@ -36,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
                             category
                             background
                             date(formatString: "DD [de] MMM [de] YYYY", locale: "pt-br")
+                            image
                         }
                         timeToRead
                     }

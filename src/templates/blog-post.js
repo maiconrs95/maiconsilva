@@ -13,7 +13,11 @@ function BlogSport({ data, pageContext }) {
 
     return (
         <Layout>
-            <SEO title={post.frontmatter.title} />
+            <SEO
+                title={post.frontmatter.title}
+                description={post.frontmatter.title}
+                image={post.frontmatter.image}
+            />
             <PostHeader>
                 <PostDate>
                     {post.frontmatter.date} - {post.timeToRead} min de leitura
@@ -42,6 +46,7 @@ export const query = graphql`
                 title
                 description
                 date(locale: "pt-br", formatString: "DD [de] MMM [de] YYYY")
+                image
             }
             fields {
                 slug
