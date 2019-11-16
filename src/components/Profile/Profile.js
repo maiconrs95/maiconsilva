@@ -16,7 +16,7 @@ import {
 function Profile() {
     const {
         site: {
-            siteMetadata: { title, position, description },
+            siteMetadata: { title, position, company, description },
         },
     } = useStaticQuery(graphql`
         query MySiteMetadata {
@@ -24,6 +24,7 @@ function Profile() {
                 siteMetadata {
                     title
                     position
+                    company
                     description
                 }
             }
@@ -42,7 +43,7 @@ function Profile() {
                 </ProfileAuthor>
             </ProfileLink>
             <ProfileDescription>
-                {description}
+                {description} <span dangerouslySetInnerHTML={{ __html: company }} />.
             </ProfileDescription>
         </ProfileWrapper>
     );

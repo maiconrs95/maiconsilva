@@ -4,9 +4,10 @@ const queries = require('./src/utils/algolia.queries');
 
 module.exports = {
     siteMetadata: {
-        title: `My Personal Blog`,
-        position: 'Front End Developer',
-        description: `A blog about frontend development and other cool stuff`,
+        title: `Maicon Silva`,
+        position: 'Web Developer',
+        company: '<a href="https://ingresse.com" target="blank">Ingresse</a>',
+        description: `Front End at`,
         author: `Maicon Silva`,
     },
     plugins: [

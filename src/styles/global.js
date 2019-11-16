@@ -106,6 +106,15 @@ const GlobalStyles = createGlobalStyle`
         --black: #222;
     }
 
+    a {
+        color: var(--texts);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--highlight);
+        }
+    }
+
 `;
 
 export default GlobalStyles;
