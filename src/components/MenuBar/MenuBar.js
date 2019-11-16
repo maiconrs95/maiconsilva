@@ -53,6 +53,7 @@ function MenuBar() {
                 </MenuBarItem>
                 <MenuBarItem
                     title="Mudar visualização"
+                    className="display"
                     onClick={() => {
                         window.__setPreferredDisplay(isListMode ? 'grid' : 'list');
                     }}
