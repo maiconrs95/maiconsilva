@@ -1,5 +1,5 @@
 import React from 'react';
-import { Profile, SocialLinks, MenuLinks } from '../';
+import { Profile, SocialLinks, MenuLinks, MobileMenuLinks } from '../';
 import { SidebarWrapper } from './SidebarStyled';
 
 function Sidebar({ children }) {
@@ -8,6 +8,7 @@ function Sidebar({ children }) {
             <Profile />
             <SocialLinks />
             <MenuLinks />
+            <MobileMenuLinks />
         </SidebarWrapper>
     );
 }
