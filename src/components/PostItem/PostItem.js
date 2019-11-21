@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 
 import getThemeColor from '../../utils/getThemeColor';
 
@@ -13,6 +14,14 @@ import {
     PostItemTitle,
     PostItemDescription,
 } from './PostItemStyled';
+
+const menuLinkClickTrack = slug => {
+    ReactGA.event({
+        category: 'post item',
+        action: 'click',
+        label: `Post Item - ${slug}`
+    })
+};
 
 function PostItem({
     slug,
@@ -30,6 +39,7 @@ function PostItem({
             direction="right"
             bg={getThemeColor()}
             duration={0.6}
+            onClick={() => menuLinkClickTrack(slug)}
         >
             <PostItemWrapper>
                 <PostItemTag background={background}>

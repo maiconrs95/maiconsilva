@@ -1,10 +1,19 @@
 import React from 'react';
 import links from './content';
+import ReactGA from 'react-ga';
 
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
 import { MenuLinksWrapper, MenuLinksList, MenuLinksItem, MenuLinksLink } from './MenuLinksStyled';
+
+const menuLinkClickTrack = link => {
+    ReactGA.event({
+        category: 'menu link',
+        action: 'click',
+        label: `Menu Link - ${link}`
+    })
+};
 
 function MenuLinks() {
     return (
@@ -19,6 +28,7 @@ function MenuLinks() {
                             bg={getThemeColor()}
                             duration={0.6}
                             activeClassName="active"
+                            onClick={() => menuLinkClickTrack(link.label)}
                         >
                             {link.label}
                         </MenuLinksLink>

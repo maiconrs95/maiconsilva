@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga'
 
 import Icons from './Icons';
 
@@ -11,6 +12,14 @@ import {
     SocialLinksLink,
     IconWrapper,
 } from './SocialLinksStyled';
+
+const socialLinkClickTrack = (social) => {
+    ReactGA.event({
+        category: 'social link',
+        action: 'click',
+        label: social
+    })
+}
 
 function SocialLinks() {
     return (
@@ -26,6 +35,7 @@ function SocialLinks() {
                                 title={link.label}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => socialLinkClickTrack(link.label)}
                             >
                                 <IconWrapper>
                                     <Icon />
