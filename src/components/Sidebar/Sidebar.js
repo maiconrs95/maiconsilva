@@ -6,7 +6,7 @@ function Sidebar({ children }) {
     return (
         <SidebarWrapper>
             <Profile />
-            <SocialLinks />
+            <SocialLinks hideMobile />
             <MenuLinks />
             <MobileMenuLinks />
         </SidebarWrapper>

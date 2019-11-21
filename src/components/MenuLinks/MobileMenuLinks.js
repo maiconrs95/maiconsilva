@@ -5,6 +5,7 @@ import ReactGA from 'react-ga';
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
+import { SocialLinks } from '../';
 import { Wrapper, MainMenu, MenuLinksLink } from './MobileMenuLinksStyled';
 
 const menuLinkClickTrack = link => {
@@ -45,6 +46,15 @@ function MobileMenuLinks() {
                             </MenuLinksLink>
                         </li>
                     ))}
+                    <li>
+                        <a
+                            href={`/assets/pdf/Maicon Silva.pdf`}
+                            download
+                        >
+                            Curriculum
+                        </a>
+                    </li>
+                    <SocialLinks />
                 </ul>
             </MainMenu>
         </Wrapper>

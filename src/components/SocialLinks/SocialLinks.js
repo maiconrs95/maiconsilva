@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from "prop-types";
 import ReactGA from 'react-ga'
 
 import Icons from './Icons';
@@ -21,9 +22,9 @@ const socialLinkClickTrack = (social) => {
     })
 }
 
-function SocialLinks() {
+function SocialLinks({ hideMobile }) {
     return (
-        <SocialLinksWrapper>
+        <SocialLinksWrapper hideMobile={hideMobile}>
             <SocialLinksList>
                 {links.map((link, i) => {
                     const Icon = Icons[link.label];
@@ -48,5 +49,13 @@ function SocialLinks() {
         </SocialLinksWrapper>
     );
 }
+
+SocialLinks.defaultProps = {
+    hideMobile: false,
+};
+
+SocialLinks.propTypes = {
+    hideMobile: propTypes.bool,
+};
 
 export default SocialLinks;

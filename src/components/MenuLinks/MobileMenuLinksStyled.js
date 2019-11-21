@@ -94,13 +94,13 @@ export const MainMenu = styled.nav`
         }
     }
 
-    ul {
+    > ul {
         display: table-cell;
         vertical-align: middle;
     }
 
     li {
-        padding: 8px 0;
+        padding: 15px 0;
         transition: all 400ms 510ms;
         opacity: 0;
 
@@ -120,14 +120,13 @@ export const MainMenu = styled.nav`
     a {
         color: var(--highlight);
         display: inline-block;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 `;
 
 export const MenuLinksLink = styled(AniLink)`
   	color: var(--texts);
     display: inline-block;
-    font-size: 1.2rem;
 
     &:hover {
         color: var(--highlight);

@@ -34,6 +34,14 @@ function MenuLinks() {
                         </MenuLinksLink>
                     </MenuLinksItem>
                 ))}
+                <MenuLinksItem>
+                    <a
+                        href={`/assets/pdf/Maicon Silva.pdf`}
+                        download
+                    >
+                        Curriculum
+                    </a>
+                </MenuLinksItem>
             </MenuLinksList>
         </MenuLinksWrapper>
     );
