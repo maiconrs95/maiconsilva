@@ -7,13 +7,13 @@ background: "#D6BA32"
 image: "/assets/img/assinc-js.png"
 ---
 
-## Introdução
+# Introdução
 
 Algo relativamente comum na vida de qualquer programador javascript pode acabar gerando certa confusão em programadores iniciantes. O uso de Callbacks, Promises e Async/Await.
 
 Aqui vai um post explicando o que é cada uma dessas features e suas diferentes formas de utilização.
 
-## O que é um callback
+# O que é um callback
 
 Uma função callback é uma função passada a outra função como argumento, que será chamada sempre que alguma rotina ou ação estiver completa.
 
@@ -84,7 +84,7 @@ fs.readFile('./in1.txt', (err, contents) => {
 
 Uma outra forma de resolver chamadas assíncronas são as famosas Promises.
 
-## O que é uma Promise?
+# O que é uma Promise?
 
 Uma [Promise](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise) é um objeto que representa a eventual conclusão ou falha de uma operação assíncrona.
 Essencialmente, uma Promise é um objeto retornado para o qual você adiciona callbacks, em vez de passar callbacks para uma função.
@@ -131,7 +131,7 @@ Outro ponto importante é que ao fazermos ```const readFile = (file) => new Prom
 
 E pra fechar o artigo teremos a terceira maneira de resolver chamadas assíncronas, o elegante async/await &hearts;
 
-## O que é o async await?
+# O que é o async await?
 
 Já sabemos que quando uma função assíncrona é chamada, ela retorna uma Promise.
 Com isso, uma função assíncrona pode conter uma expressão await, que pausa a execução da função assíncrona e espera pela resolução da Promise passada, e depois retoma a execução da função assíncrona e retorna o valor resolvido. Ou seja, o [async/await](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/funcoes_assincronas) nada mais é que uma forma mais "bonita" de resolver as Promises, dando a aparência de síncrono para um código assíncrono.
@@ -191,7 +191,7 @@ const init = async () => {
 }
 ```
 
-## Conclusão
+# Conclusão
 
 Qualquer desenvolvedor Javascript vai precisar trabalhar com operações assíncronas em algum momento. E como vimos no artigo existem 3 formas de se trabalhar com esse tipo de operação, sendo elas:
 

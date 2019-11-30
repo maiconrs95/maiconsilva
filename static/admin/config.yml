@@ -34,8 +34,44 @@ collections:
         widget: select,
         options: [
             {
-                label: html,
-                value: #E5622A
+                label: 'html',
+                value: '#E5622A'
+            },
+            {
+                label: 'css',
+                value: '#61B2F3'
+            },
+            {
+                label: 'js',
+                value: '#F0D81E'
+            },
+            {
+                label: 'dev',
+                color: '#F8CC4E'
+            },
+            {
+                label: 'misc',
+                color: '#E39521'
+            },
+            {
+                label: 'nosql',
+                color: '#3871F0'
+            },
+                {
+                label: 'sql',
+                color: '#3FB66A'
+            },
+            {
+                label: 'nodejs',
+                value: '#88C34C'
+            },
+            {
+                label: 'react',
+                value: '#53CFF9'
+            },
+            {
+                label: 'rn',
+                value: '#7059C1'
             }
         ]
       }
