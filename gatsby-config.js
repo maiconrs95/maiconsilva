@@ -9,7 +9,7 @@ module.exports = {
         company: '<a href="https://ingresse.com" target="blank">Ingresse</a>',
         description: `Front End at`,
         author: `Maicon Silva`,
-        siteUrl: 'http://maiconsilva.me',
+        siteUrl: 'https://maiconsilva.com',
     },
     plugins: [
         `gatsby-plugin-transition-link`,
