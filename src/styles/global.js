@@ -61,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: #16202c;
+        background-color: var(--background);
         line-height: 1;
         font-size: 100%;
         font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -73,24 +73,13 @@ const GlobalStyles = createGlobalStyle`
         height: auto;
     }
 
-    /* body.dark {
-        --borders: #38444d;
-        --texts: #8899a6;
-        --postColor: #fff;
-        --highlight: #1fa1f2;
-        --mediumBackground: #192734;
-        --background: #16202c;
-        --white: #fff;
-        --black: #222;
-    } */
-
     body.dark {
-        --borders: #676767;
+        --borders: #393A3B;
         --texts: #8899a6;
         --postColor: #fff;
-        --highlight: #71B23D;
-        --mediumBackground: #333333;
-        --background: #212121;
+        --highlight: #4089FF;
+        --mediumBackground: #242526;
+        --background: #18191A;
         --white: #fff;
         --black: #222;
     }
@@ -99,9 +88,9 @@ const GlobalStyles = createGlobalStyle`
         --borders: #dedede;
         --postColor: #111;
         --texts: #555555;
-        --highlight: #1fa1f2;
-        --mediumBackground: #f0f0f3;
-        --background: #fff;
+        --highlight: #4089FF;
+        --mediumBackground: #FFFFFF;
+        --background: #F0F2F5;
         --white: #fff;
         --black: #222;
     }
