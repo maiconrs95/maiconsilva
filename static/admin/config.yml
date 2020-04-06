@@ -2,12 +2,12 @@ backend:
   name: github
   repo: maiconrs95/maiconsilva
   branch: master
-  site_domain: https://maiconsilva.netlify.com/
+  site_domain: maiconsilva.netlify.com
 
 publish_mode: editorial_workflow
 
-media_folder: static/assets/img
-public_folder: assets/img
+media_folder: "static/assets/img"
+public_folder: "assets/img"
 
 collections:
   - name: "posts"
@@ -16,64 +16,34 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: Title, label: title, widget: string }
-      - { name: Description, label: description, widget: string }
-      - { name: Date, label: date, widget: datetime, format: yyyy-mm-dd hh:mm:ss }
-      - { name: image, label: thumbnail, widget: image }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "yyyy-mm-dd hh:mm:ss" }
+      - { label: "image", name: "thumbnail", widget: "image" }
 
       - {
-        label: Category,
-        name: category,
-        widget: select,
-        options: [html, css, js, dev, misc, nosql, sql, nodejs, react, rn]
-      }
+            label: "Category",
+            name: "category",
+            widget: "select",
+            options: ["html", "css", "js", "dev", "misc", "nosql", "sql", "nodejs", "react", "rn"]
+        }
 
       - {
-        label: Backgeound,
-        name: background,
-        widget: select,
-        options: [
-            {
-                label: 'html',
-                value: '#E5622A'
-            },
-            {
-                label: 'css',
-                value: '#61B2F3'
-            },
-            {
-                label: 'js',
-                value: '#F0D81E'
-            },
-            {
-                label: 'dev',
-                color: '#F8CC4E'
-            },
-            {
-                label: 'misc',
-                color: '#E39521'
-            },
-            {
-                label: 'nosql',
-                color: '#3871F0'
-            },
-                {
-                label: 'sql',
-                color: '#3FB66A'
-            },
-            {
-                label: 'nodejs',
-                value: '#88C34C'
-            },
-            {
-                label: 'react',
-                value: '#53CFF9'
-            },
-            {
-                label: 'rn',
-                value: '#7059C1'
-            }
-        ]
-      }
+            label: "Background",
+            name: "background",
+            widget: "select",
+            options: [
+                { label: 'html', value: '#E5622A' },
+                { label: 'css', value: '#61B2F3' },
+                { label: 'js', value: '#F0D81E' },
+                { label: 'dev', value: '#F8CC4E' },
+                { label: 'misc', value: '#E39521' },
+                { label: 'nosql', value: '#3871F0' },
+                { label: 'sql', value: '#3FB66A' },
+                { label: 'nodejs', value: '#88C34C' },
+                { label: 'react', value: '#53CFF9' },
+                { label: 'rn', value: '#7059C1' }
+            ]
+        }
 
-      - { name: Body, label: body, widget: markdown }
+      - { label: "Body", name: "body", widget: "markdown" }
