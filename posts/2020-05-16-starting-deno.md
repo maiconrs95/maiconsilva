@@ -13,12 +13,12 @@ Deno é um runtime para JavaScript e TypeScript baseado no V8 e na linguagem de 
 
 Nesse artigo vamos dar uma olhada em algumas features presentes no Deno e também em como ele funciona.
 
-> Segundo o Ryan Dahl, o Denno foi criado para tratar alguns assuntos que ele deverira ter pensado mais quando desenvolveu o nodejs. E NÃO, ele não vai substituir o node.
+> Segundo o Ryan Dahl, o Deno foi criado para tratar alguns assuntos que ele deverira ter pensado mais quando desenvolveu o nodejs. E NÃO, ele não vai substituir o node.
 
 ## Principais caracteristicas
 
 - Seguro por padrão. Sem acesso a arquivos, redes ou ambientes (a menos que seja explicitamente ativado).
-- Possui um runtime TypeScript :
+- Possui um runtime TypeScript
 - Os scripts podem ser agrupados em um único arquivo JavaScript.
 - Construido em [Rust](https://www.rust-lang.org/) (o núcleo do Deno foi escrito em Rust, Node em C ++), [Tokio](https://tokio.rs/) (loop de eventos) e [V8](https://v8.dev/) (runtime JavaScript)
 
@@ -31,13 +31,13 @@ import * as log from "https://deno.land/std/log/mod.ts";
 ```
 
 - Não utiliza ```package.json``` para resolução de módulos
-- Todas as ações assíncronas no Deno retornam uma ```promise```
+- Todas as ações assíncronas no Deno retornam uma ```Promise```
 - O Deno requer permissões explícitas para acessar arquivos, redes e ambientes
 - Deno sempre morre por erros não capturados
 
 ## Preparando o ambiente
 
-A instalação é bem simples, basta seguir a [documentação](https://deno.land/). Como estou no ubunto vou instalar usando Shell (macOS, Linux):
+A instalação é bem simples, basta seguir a [documentação](https://deno.land/). Como estou no Ubuntu vou instalar usando Shell (macOS, Linux):
 
 ```shell
 curl -fsSL https://deno.land/x/install/install.sh | sh
@@ -83,7 +83,7 @@ const server = serve({
 
 console.log("http://localhost:3000/");
 
-/** Async for iterator to listening server requests */
+/** Async "for" iterator to listening server requests */
 for await (const req of server) {
     req.respond({
         body: "Hello World\n"
