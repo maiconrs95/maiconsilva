@@ -3,7 +3,7 @@ date: 2020-05-16 18:15:00
 title: Bem vindo, Deno
 description: Um overview sobre o novo interpretador JS
 category: deno
-background: "#9AE6E6"
+background: "#222222"
 image: "/assets/img/deno.jpeg"
 ---
 
