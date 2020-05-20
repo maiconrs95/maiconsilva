@@ -9,7 +9,7 @@ import { ThList as List } from 'styled-icons/typicons/ThList';
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
-import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './MenuBarStyled';
+import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './styles';
 
 function MenuBar() {
     const [theme, setTheme] = useState(null);

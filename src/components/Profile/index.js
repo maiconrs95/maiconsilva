@@ -13,7 +13,7 @@ import {
     ProfileAuthor,
     ProfilePosition,
     ProfileDescription,
-} from './ProfileStyled';
+} from './styles';
 
 function Profile() {
     const {

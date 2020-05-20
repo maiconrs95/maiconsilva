@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
-import { PaginationWrapper } from './PaginationStyled';
+import { PaginationWrapper } from './styles';
 
 function Pagination({
     isFirst,

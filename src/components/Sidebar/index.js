@@ -1,6 +1,7 @@
 import React from 'react';
 import { Profile, SocialLinks, MenuLinks, MobileMenuLinks } from '../';
-import { SidebarWrapper } from './SidebarStyled';
+
+import { SidebarWrapper } from './styles';
 
 function Sidebar({ children }) {
     return (

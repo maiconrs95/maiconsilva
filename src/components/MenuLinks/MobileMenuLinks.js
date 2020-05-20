@@ -26,7 +26,7 @@ function MobileMenuLinks() {
 
     return (
         <Wrapper>
-            <span className={`menuBtn ${opened ? 'act' : ''}`} onClick={handleMenu}>
+            <span role="button" tabIndex={0} className={`menuBtn ${opened ? 'act' : ''}`} onClick={handleMenu}>
                 <span className="lines"></span>
             </span>
             <MainMenu className={`mainMenu ${opened ? 'act' : ''}`}>
