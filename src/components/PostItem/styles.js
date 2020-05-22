@@ -7,7 +7,6 @@ export const PostItemWrapper = styled.section`
     border-bottom: 1px solid var(--borders);
     align-items: flex-start;
     width: 100%;
-    border: none;
     padding: 2rem 3rem;
     flex-direction: column;
     justify-content: center;
