@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Layout, SocialLinks } from "../components";
-import SEO from "../components/seo";
+import { Layout, SocialLinks } from '../components';
+import SEO from '../components/seo';
 
 import { MainContent } from '../styles/base';
+
 
 function AboutPage() {
     return (
