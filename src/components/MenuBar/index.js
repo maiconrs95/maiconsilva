@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Home } from 'styled-icons/boxicons-solid/Home';
 import { Search } from 'styled-icons/boxicons-regular/Search';
 import { UpArrowAlt as Arrow } from 'styled-icons/boxicons-regular/UpArrowAlt';
-import { Lightbulb as Light } from 'styled-icons/remix-line/Lightbulb';
+import { Sun } from 'styled-icons/boxicons-solid/Sun';
 import { Grid } from 'styled-icons/boxicons-solid/Grid';
 import { ThList as List } from 'styled-icons/typicons/ThList';
 
@@ -65,7 +65,7 @@ function MenuBar() {
                     onClick={() => {
                         window.__setPreferredTheme(isDarkMode ? 'light' : 'dark');
                     }}>
-                    <Light />
+                    <Sun />
                 </MenuBarItem>
                 <MenuBarItem
                     title="Mudar visualização"
