@@ -31,7 +31,7 @@ export const ProfileAuthor = styled.h1`
 
     ${media.lessThan('large')`
         font-size: 1.2rem;
-        margin: 0 0 0 20px;
+        margin: 0;
     `}
 `;
 

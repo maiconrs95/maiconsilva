@@ -76,7 +76,12 @@ function MenuBar() {
                 >
                     {isListMode ? <Grid /> : <List />}
                 </MenuBarItem>
-                <MenuBarItem title="Ir para o topo">
+                <MenuBarItem
+                    title="Ir para o topo"
+                    onClick={() => {
+                        window.scrollTo(0, 0);
+                    }}
+                >
                     <Arrow />
                 </MenuBarItem>
             </MenuBarGroup>

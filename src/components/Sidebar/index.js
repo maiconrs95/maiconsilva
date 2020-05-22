@@ -7,9 +7,9 @@ function Sidebar({ children }) {
     return (
         <SidebarWrapper>
             <Profile />
-            <SocialLinks hideMobile />
             <MenuLinks />
             <MobileMenuLinks />
+            <SocialLinks hideMobile />
         </SidebarWrapper>
     );
 }
