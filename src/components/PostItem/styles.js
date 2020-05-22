@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import media from "styled-media-query";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import media from 'styled-media-query';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 export const PostItemWrapper = styled.section`
     display: flex;
@@ -11,7 +11,7 @@ export const PostItemWrapper = styled.section`
     flex-direction: column;
     justify-content: flex-start;
 
-    ${media.lessThan("large")`
+    ${media.lessThan('large')`
         padding: 2rem 1rem;
     `}
 `;
@@ -33,7 +33,7 @@ export const PostItemLink = styled(AniLink)`
 export const PostItemTag = styled.div`
     display: flex;
     align-items: center;
-    background: ${(props) => props.background};
+    background: ${props => props.background};
     color: #fff;
     font-size: 1rem;
     font-weight: 700;
@@ -41,7 +41,7 @@ export const PostItemTag = styled.div`
     min-height: auto;
     min-width: auto;
     text-transform: uppercase;
-    padding: .2rem .5rem;
+    padding: 0.2rem 0.5rem;
     margin-bottom: 1.5rem;
 `;
 
@@ -70,4 +70,3 @@ export const PostItemDescription = styled.p`
     font-weight: 300;
     line-height: 1.2;
 `;
-

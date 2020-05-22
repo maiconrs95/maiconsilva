@@ -4,7 +4,6 @@ import ReactGA from 'react-ga';
 
 import getThemeColor from '../../utils/getThemeColor';
 
-/* Styled Components */
 import {
     PostItemWrapper,
     PostItemLink,
@@ -19,8 +18,8 @@ const menuLinkClickTrack = slug => {
     ReactGA.event({
         category: 'post item',
         action: 'click',
-        label: `Post Item - ${slug}`
-    })
+        label: `Post Item - ${slug}`,
+    });
 };
 
 function PostItem({
@@ -30,7 +29,7 @@ function PostItem({
     date,
     timeToRead,
     title,
-    description
+    description,
 }) {
     return (
         <PostItemLink
@@ -42,19 +41,15 @@ function PostItem({
             onClick={() => menuLinkClickTrack(slug)}
         >
             <PostItemWrapper>
-                <PostItemTag background={background}>
+                <PostItemTag className="post-tag" background={background}>
                     {category}
                 </PostItemTag>
                 <PostItemInfo>
                     <PostItemDate>
-                        {date} * {timeToRead} min de leitura
+                        {`${date} * ${timeToRead} min de leitura`}
                     </PostItemDate>
-                    <PostItemTitle>
-                        {title}
-                    </PostItemTitle>
-                    <PostItemDescription>
-                        {description}
-                    </PostItemDescription>
+                    <PostItemTitle>{title}</PostItemTitle>
+                    <PostItemDescription>{description}</PostItemDescription>
                 </PostItemInfo>
             </PostItemWrapper>
         </PostItemLink>
@@ -66,16 +61,14 @@ PostItem.propTypes = {
     background: PropTypes.string,
     category: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    timeToRead: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]).isRequired,
+    timeToRead: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
 };
 
 PostItem.defaultProps = {
-    background: 'var(--highlight)'
-}
+    background: 'var(--highlight)',
+};
 
 export default PostItem;
