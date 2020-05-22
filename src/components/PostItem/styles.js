@@ -9,7 +9,7 @@ export const PostItemWrapper = styled.section`
     width: 100%;
     padding: 2rem 3rem;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 
     ${media.lessThan("large")`
         padding: 2rem 1rem;
