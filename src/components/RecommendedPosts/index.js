@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
-import { RecommendedWrapper, RecommendedLink } from './RecommendedStyled';
+import { RecommendedWrapper, RecommendedLink } from './styles';
 
 const RecommendedClickTrack = () => {
     ReactGA.event({

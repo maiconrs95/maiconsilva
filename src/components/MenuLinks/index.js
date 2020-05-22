@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
-import { MenuLinksWrapper, MenuLinksList, MenuLinksItem, MenuLinksLink } from './MenuLinksStyled';
+import { MenuLinksWrapper, MenuLinksList, MenuLinksItem, MenuLinksLink } from './styles';
 
 const menuLinkClickTrack = link => {
     ReactGA.event({

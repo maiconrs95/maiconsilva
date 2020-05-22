@@ -13,7 +13,7 @@ import {
     PostItemDate,
     PostItemTitle,
     PostItemDescription,
-} from './PostItemStyled';
+} from './styles';
 
 const menuLinkClickTrack = slug => {
     ReactGA.event({

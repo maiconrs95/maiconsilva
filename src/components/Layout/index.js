@@ -9,7 +9,7 @@ import GlobalStyles from '../../styles/global';
 import { Sidebar, MenuBar } from '../';
 
 /* Styled Components */
-import { LayoutWrapper, LayoutMain } from './LayoutStyled';
+import { LayoutWrapper, LayoutMain } from './styles';
 
 const Layout = ({ children }) => {
     return (

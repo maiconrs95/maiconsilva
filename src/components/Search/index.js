@@ -4,7 +4,7 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits, Stats } from 'react-instantsearch-dom';
 
 import Hit from './Hit';
-import { SearchWrapper } from './SearchStyled';
+import { SearchWrapper } from './styles';
 
 const algolia = {
     appId: process.env.GATSBY_ALGOLIA_APP_ID,
@@ -21,7 +21,7 @@ function Search() {
     return (
         <SearchWrapper>
             <InstantSearch searchClient={searchClient} indexName={algolia.indexName}>
-                <SearchBox autoFocus translations={{ placeholder: 'Pesquisar' }} />
+                <SearchBox translations={{ placeholder: 'Pesquisar' }} />
                 <Stats translations={{
                     stats(nbHits, timeSpentMs) {
                         return `${nbHits} resultados em ${timeSpentMs}ms`

@@ -12,7 +12,7 @@ import {
     SocialLinksItem,
     SocialLinksLink,
     IconWrapper,
-} from './SocialLinksStyled';
+} from './styles';
 
 const socialLinkClickTrack = (social) => {
     ReactGA.event({

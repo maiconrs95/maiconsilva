@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 /* Styled Components */
-import { AvatarWrapper } from './AvatarStyled';
+import { AvatarWrapper } from './styles';
 
 function Avatar() {
     const { avatarImage } = useStaticQuery(

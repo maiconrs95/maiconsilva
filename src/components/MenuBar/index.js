@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Home } from 'styled-icons/boxicons-solid/Home';
 import { Search } from 'styled-icons/boxicons-regular/Search';
 import { UpArrowAlt as Arrow } from 'styled-icons/boxicons-regular/UpArrowAlt';
-import { Lightbulb as Light } from 'styled-icons/remix-line/Lightbulb';
+import { Sun } from 'styled-icons/boxicons-solid/Sun';
 import { Grid } from 'styled-icons/boxicons-solid/Grid';
 import { ThList as List } from 'styled-icons/typicons/ThList';
 
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
-import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './MenuBarStyled';
+import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './styles';
 
 function MenuBar() {
     const [theme, setTheme] = useState(null);
@@ -65,7 +65,7 @@ function MenuBar() {
                     onClick={() => {
                         window.__setPreferredTheme(isDarkMode ? 'light' : 'dark');
                     }}>
-                    <Light />
+                    <Sun />
                 </MenuBarItem>
                 <MenuBarItem
                     title="Mudar visualização"
@@ -76,7 +76,12 @@ function MenuBar() {
                 >
                     {isListMode ? <Grid /> : <List />}
                 </MenuBarItem>
-                <MenuBarItem title="Ir para o topo">
+                <MenuBarItem
+                    title="Ir para o topo"
+                    onClick={() => {
+                        window.scrollTo(0, 0);
+                    }}
+                >
                     <Arrow />
                 </MenuBarItem>
             </MenuBarGroup>
