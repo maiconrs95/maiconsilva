@@ -5,8 +5,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { AvatarWrapper } from './styles';
 
 function Avatar() {
-    const test = '';
-
     const { avatarImage } = useStaticQuery(
         graphql`
             query {
