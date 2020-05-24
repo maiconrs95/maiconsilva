@@ -6,6 +6,9 @@ on:
       - master
     paths:
       - '**.js'
+    types:
+      - opened
+      - synchronize
 
 jobs:
   build:
