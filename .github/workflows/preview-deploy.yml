@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - master
-    types:
-      - opened
-      - synchronize
 
 jobs:
   deploy-netlify-draft:
@@ -16,22 +13,21 @@ jobs:
     steps:
       - name: Wait for lint to succeed
         uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-lint
+        id: wait-for-build
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           checkName: Run linters
-          ref: github.event.pull_request.head.sha || github.sha
 
       - name: Checkout repository
-        if: steps.wait-for-lint.outputs.conclusion == 'success'
+        if: steps.wait-for-build.outputs.conclusion == 'success'
         uses: actions/checkout@v2
 
       - name: Install Node.js dependencies
-        if: steps.wait-for-lint.outputs.conclusion == 'success'
+        if: steps.wait-for-build.outputs.conclusion == 'success'
         run: npm install
 
       - name: Building Project
-        if: steps.wait-for-lint.outputs.conclusion == 'success'
+        if: steps.wait-for-build.outputs.conclusion == 'success'
         env:
           GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
           GATSBY_ALGOLIA_SEARCH_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_KEY }}
