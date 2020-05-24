@@ -1,9 +1,6 @@
 name: Preview Deploy
 
-on:
-  pull_request:
-    branches:
-    - master
+on: [push]
 
 jobs:
   deploy-netlify-draft:
