@@ -3,9 +3,12 @@ name: Lint
 on:
   pull_request:
     branches:
-    - master
+      - master
     paths:
-    - 'src/*'
+      - '**.js'
+    types:
+      - opened
+      - synchronize
 
 jobs:
   build:
