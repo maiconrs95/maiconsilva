@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
     - master
+    paths:
+    - 'src/*'
 
 jobs:
   build:
@@ -14,7 +16,6 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      # Install your linters here
       - name: Install Node.js dependencies
         run: npm install
 
