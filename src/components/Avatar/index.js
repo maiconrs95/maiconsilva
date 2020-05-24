@@ -5,6 +5,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { AvatarWrapper } from './styles';
 
 function Avatar() {
+    const txt = '';
+    const data = {};
+
     const { avatarImage } = useStaticQuery(
         graphql`
             query {
@@ -16,12 +19,10 @@ function Avatar() {
                     }
                 }
             }
-        `
+        `,
     );
 
-    return (
-        <AvatarWrapper fluid={avatarImage.childImageSharp.fluid} />
-    );
+    return <AvatarWrapper fluid={avatarImage.childImageSharp.fluid} />;
 }
 
 export default Avatar;
