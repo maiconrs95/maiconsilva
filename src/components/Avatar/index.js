@@ -16,12 +16,10 @@ function Avatar() {
                     }
                 }
             }
-        `
+        `,
     );
 
-    return (
-        <AvatarWrapper fluid={avatarImage.childImageSharp.fluid} />
-    );
+    return <AvatarWrapper fluid={avatarImage.childImageSharp.fluid} />;
 }
 
 export default Avatar;

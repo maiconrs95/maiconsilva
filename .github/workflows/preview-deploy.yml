@@ -17,7 +17,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           checkName: Run linters
-          ref: github.event.pull_request.head.sha || github.sha
 
       - name: Checkout repository
         if: steps.wait-for-build.outputs.conclusion == 'success'
