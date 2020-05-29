@@ -4,7 +4,6 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 export const PostItemWrapper = styled.section`
     display: flex;
-    border-bottom: 1px solid var(--borders);
     align-items: flex-start;
     width: 100%;
     padding: 2rem 3rem;
@@ -33,7 +32,7 @@ export const PostItemLink = styled(AniLink)`
 export const PostItemTag = styled.div`
     display: flex;
     align-items: center;
-    background: ${props => props.background};
+    background: ${(props) => props.background};
     color: #fff;
     font-size: 1rem;
     font-weight: 700;

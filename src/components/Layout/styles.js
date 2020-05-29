@@ -6,6 +6,7 @@ export const LayoutWrapper = styled.section`
 
     ${media.lessThan('large')`
         flex-direction: column;
+        padding: 0 0 10px 0;
     `}
 `;
 
@@ -18,11 +19,11 @@ export const LayoutMain = styled.main`
 
     body#grid & {
         grid-template-areas:
-        "posts"
-        "pagination";
+            'posts'
+            'pagination';
     }
 
-    ${media.lessThan("large")`
+    ${media.lessThan('large')`
         padding: 4.125rem 0 3rem 0;
     `}
 `;
