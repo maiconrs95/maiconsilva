@@ -9,7 +9,12 @@ import { ThList as List } from 'styled-icons/typicons/ThList';
 import getThemeColor from '../../utils/getThemeColor';
 
 /* Styled Components */
-import { MenuBarWrapper, MenuBarGroup, MenuBarLink, MenuBarItem } from './styles';
+import {
+    MenuBarWrapper,
+    MenuBarGroup,
+    MenuBarLink,
+    MenuBarItem,
+} from './styles';
 
 function MenuBar() {
     const [theme, setTheme] = useState(null);
@@ -63,11 +68,14 @@ function MenuBar() {
                     title="Mudar o tema"
                     className={theme}
                     onClick={() => {
-                        window.__setPreferredTheme(isDarkMode ? 'light' : 'dark');
-                    }}>
+                        window.__setPreferredTheme(
+                            isDarkMode ? 'light' : 'dark',
+                        );
+                    }}
+                >
                     <Sun />
                 </MenuBarItem>
-                <MenuBarItem
+                {/* <MenuBarItem
                     title="Mudar visualização"
                     className="display"
                     onClick={() => {
@@ -75,7 +83,7 @@ function MenuBar() {
                     }}
                 >
                     {isListMode ? <Grid /> : <List />}
-                </MenuBarItem>
+                </MenuBarItem> */}
                 <MenuBarItem
                     title="Ir para o topo"
                     onClick={() => {

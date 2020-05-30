@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 export const Wrapper = styled.section`
     display: none;
@@ -9,51 +9,53 @@ export const Wrapper = styled.section`
         display: initial;
     `}
 
-.menuBtn {
-    height: 30px;
-    width: 30px;
+    .menuBtn {
+        height: 30px;
+        width: 30px;
 
-    position: absolute;
-    right: 2rem;
-    top: 1rem;
-    z-index: 101;
-
-    > span {
-        background-color: var(--texts);
-        border-radius: 1px;
-        height: 2px;
-        width: 100%;
         position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: -1px 0 0 -15px;
-        transition: height 100ms;
+        right: 2rem;
+        top: 1rem;
+        z-index: 110;
 
-        &:after, &:before {
-            content: '';
+        > span {
             background-color: var(--texts);
             border-radius: 1px;
             height: 2px;
             width: 100%;
             position: absolute;
             left: 50%;
-            margin-left: -15px;
-            transition: all 200ms;
+            top: 50%;
+            margin: -1px 0 0 -15px;
+            transition: height 100ms;
+
+            &:after,
+            &:before {
+                content: '';
+                background-color: var(--texts);
+                border-radius: 1px;
+                height: 2px;
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                margin-left: -15px;
+                transition: all 200ms;
+            }
+
+            &:after {
+                top: -7px;
+            }
+
+            &:before {
+                bottom: -7px;
+            }
         }
 
-        &:after {
-            top: -7px;
-        }
-
-        &:before {
-            bottom: -7px;
-        }
-    }
-
-    &.act {
-        > span {
-            height: 0;
-                &:after, &:before {
+        &.act {
+            > span {
+                height: 0;
+                &:after,
+                &:before {
                     background-color: var(--highlight);
                     top: 1px;
                 }
@@ -100,7 +102,7 @@ export const MainMenu = styled.nav`
     }
 
     li {
-        padding: 15px 0;
+        padding: 1.3rem 0;
         transition: all 400ms 510ms;
         opacity: 0;
 
@@ -125,7 +127,7 @@ export const MainMenu = styled.nav`
 `;
 
 export const MenuLinksLink = styled(AniLink)`
-  	color: var(--texts);
+    color: var(--texts);
     display: inline-block;
 
     &:hover {
