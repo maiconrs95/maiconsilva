@@ -42,6 +42,11 @@ export const PostItemTag = styled.div`
     text-transform: uppercase;
     padding: 0.2rem 0.5rem;
     margin-bottom: 1.5rem;
+
+    ${media.lessThan('small')`
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    `}
 `;
 
 export const PostItemInfo = styled.div`
@@ -61,6 +66,11 @@ export const PostItemTitle = styled.h1`
     body#grid & {
         line-height: 1.1;
         margin: 0.8rem 0;
+
+        ${media.lessThan('small')`
+            margin: 0.5rem 0;
+            font-size: 1.3rem;
+        `}
     }
 `;
 
