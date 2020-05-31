@@ -75,16 +75,14 @@ export const MenuBarItem = styled.span`
         `}
     }
 
-    ${media.greaterThan('large')`
+    ${media.lessThan('large')`
+        width: 3.3rem;
+        height: 3.3rem;
+        padding: .9rem;
+        position: relative;
+
         &:hover {
             color: var(--highlight);
         }
-    `}
-
-    ${media.lessThan('large')`
-        height: 3.2rem;
-        padding: .9rem;
-        position: relative;
-        width: 3.2rem;
     `}
 `;
