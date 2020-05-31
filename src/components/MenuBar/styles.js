@@ -24,6 +24,7 @@ export const MenuBarWrapper = styled.aside`
         padding: 5px 0;
         position: fixed;
         width: 100%;
+        background-color: var(--background);
     `}
 `;
 
