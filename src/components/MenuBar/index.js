@@ -42,6 +42,7 @@ function MenuBar() {
                     title="Voltar para Home"
                     cover
                     direction="right"
+                    activeClassName="active"
                     bg={getThemeColor()}
                     duration={0.6}
                 >
@@ -54,6 +55,7 @@ function MenuBar() {
                     title="Pesquisar"
                     cover
                     direction="right"
+                    activeClassName="active"
                     bg={getThemeColor()}
                     duration={0.6}
                 >

@@ -5,7 +5,7 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 export const MenuBarWrapper = styled.aside`
     display: flex;
     align-items: center;
-    background-color: var(--mediumBackground);
+    background-color: var(--background);
     border-left: 1px solid var(--borders);
     flex-direction: column;
     height: 100vh;
@@ -24,7 +24,6 @@ export const MenuBarWrapper = styled.aside`
         padding: 5px 0;
         position: fixed;
         width: 100%;
-        background-color: var(--background);
     `}
 `;
 
