@@ -19,7 +19,6 @@ export const SidebarWrapper = styled.aside`
         padding: 1rem 2rem;
         width: 100%;
 
-        background-color: var(--mediumBackground);
         border: 0;
         border-bottom: 1px solid var(--borders);
     `}

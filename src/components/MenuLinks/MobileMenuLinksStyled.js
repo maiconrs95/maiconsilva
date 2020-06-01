@@ -19,7 +19,7 @@ export const Wrapper = styled.section`
         z-index: 110;
 
         > span {
-            background-color: var(--texts);
+            background-color: var(--highlight);
             border-radius: 1px;
             height: 2px;
             width: 100%;
@@ -32,7 +32,7 @@ export const Wrapper = styled.section`
             &:after,
             &:before {
                 content: '';
-                background-color: var(--texts);
+                background-color: var(--highlight);
                 border-radius: 1px;
                 height: 2px;
                 width: 100%;
