@@ -1,6 +1,6 @@
 ---
 date: 2019-11-18 00:50:00
-title: Hello Word
+title: Hello World
 description: export default new Blog()
 category: JS
 background: "#D6BA32"

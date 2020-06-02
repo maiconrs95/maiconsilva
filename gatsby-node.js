@@ -1,30 +1,33 @@
 const path = require('path');
-const { createFilePath } = require(`gatsby-source-filesystem`)
+
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-    const { createNodeField } = actions
+    const { createNodeField } = actions;
 
-    if (node.internal.type === "MarkdownRemark") {
+    if (node.internal.type === 'MarkdownRemark') {
         const slug = createFilePath({
             node,
             getNode,
-            basePath: "pages",
+            basePath: 'pages',
         });
 
         createNodeField({
             node,
-            name: "slug",
+            name: 'slug',
             value: `/${slug.slice(12)}`,
         });
     }
-}
+};
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
 
     return graphql(`
         {
-            allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+            allMarkdownRemark(
+                sort: { fields: frontmatter___date, order: DESC }
+            ) {
                 edges {
                     node {
                         fields {
@@ -35,7 +38,10 @@ exports.createPages = ({ graphql, actions }) => {
                             description
                             category
                             background
-                            date(formatString: "DD [de] MMM [de] YYYY", locale: "pt-br")
+                            date(
+                                formatString: "DD [de] MMM [de] YYYY"
+                                locale: "pt-br"
+                            )
                             image
                         }
                         timeToRead
@@ -71,10 +77,10 @@ exports.createPages = ({ graphql, actions }) => {
                     previousPost: next,
                     nextPost: previous,
                 },
-            })
+            });
         });
 
-        const postsPerPage = 6;
+        const postsPerPage = 12;
         const numPages = Math.ceil(posts.length / postsPerPage);
 
         Array.from({ length: numPages }).forEach((_, index) => {
@@ -87,7 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
                     limit: postsPerPage,
                     currentPage: index + 1,
                 },
-            })
+            });
         });
     });
 };
