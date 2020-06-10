@@ -992,6 +992,163 @@ Ele funciona de forma contraria ao `Pick`, recebendo apenas as propriedades que 
 
 Existem alguns outros type utilities que podemos usar, vale a pena conferir na [doc](https://www.typescriptlang.org/docs/handbook/utility-types.html).
 
+## Decorators
+
+Os [decorator](https://www.typescriptlang.org/docs/handbook/decorators.html) são um recurso que pode ser usado para extender funcionalidades de classes, métodos, propriedade, acessores ou parâmetro. Utilizam `@Expression`, onde `expression` deve avaliar uma função que será chamada em tempo de execução com informações sobre a declaração decorada.
+
+Atualmente os decorators é uma proposta de [estágio 2](https://github.com/tc39/proposal-decorators) para o TypeScript.
+
+> Decoradores são um recurso experimental que pode mudar em versões futuras.
+
+Para habilitar o suporte experimental aos decorators, é necessário uma configuração no `tsconfig.json`:
+
+```javascript
+...
+"experimentalDecorators": true,
+...
+```
+
+### Criando um decorator
+
+O decorador é uma função que recebe `target`, sendo `target` a instância da classe, como um parâmetro default:
+
+```javascript
+function sealed(target) {
+    console.log(target);
+}
+
+@sealed
+class Foo {}
+
+new Foo(); // [Function: Foo]
+```
+
+### Factory decorator
+
+Se quisermos personalizar como um decorador é aplicado a uma declaração, podemos escrever uma fábrica de decoradores. Uma Decorator Factory é simplesmente uma função que retorna a expressão que será chamada pelo decorador em tempo de execução.
+
+Podemos escrever uma fábrica de decoradores da seguinte maneira:
+
+```javascript
+function logger(prefix: string) {
+    return (target) => {
+        console.log(`${target} - ${prefix}`);
+    }
+}
+
+
+@logger('isSealed')
+class Foo { }
+```
+
+### Class decorator
+
+Como exemplo, vamos criar uma classe `API` que recebe um `decorator` para setar sua versão.
+
+O que esse `decorator` faz é retornar um construtor de classe que extende por padrão a classe `target`:
+
+```javascript
+function setAPIVersion(apiVersion: string) {
+    return (target) => {
+        return class extends target {
+            version = apiVersion;
+        }
+    }
+}
+
+@setAPIVersion('1.0.8')
+class API { }
+
+console.log(new API()); // class_1 { version: '1.0.8' }
+```
+
+Caso o `decorator` retorne um valor, ele substituirá a declaração de classe pelo valor fornecido, que deve ser um construtor. Dessa maneira podemos aplicar mudanças diretas à classe, ao invés de apenas no protótipo da classe.
+
+### Property decorator
+
+Um case comum é precisarmos validar uma propriedade de uma classe no momento em que ela é instânciada ou em que a propriedade é alterada. Nesse cenário, um `property decorator` é uma solução.
+
+Imagina a classe `Person` que precisa receber a idade da pessoa, porém essa pessoa precisa ser maior de idade, ou no nosso caso, ter mais de 18 anos:
+
+```javascript
+function minPersonAge(minAge: number) {
+    return (target: any, key: string) => {
+        let val = target[key];
+
+        const getter = () => val;
+
+        const setter = (value: number) => {
+            if (value < 18) {
+                throw new Error('Age must be over 18');
+            }
+
+            val = value;
+        };
+
+        Object.defineProperty(target, key, {
+            get: getter,
+            set: setter,
+        });
+    };
+}
+
+class Person {
+    // Precisa ser maior que 18
+    @minPersonAge(18)
+    age: number;
+
+    constructor(a: number) {
+        this.age = a;
+    }
+}
+
+console.log(new Person(17)); // Error
+console.log(new Person(18)); // Person {}
+```
+
+Dessa vez o `decorator` recebe `target` e `key`, sendo `target` o objeto da classe e `key` a propriedade onde o `decorator` está assinado.
+
+### Method decorator
+
+O `method decorator` roda sempre que o método da classe for chamado.
+
+Como exemplo, vamos criar uma classe `Greeter`, onde o método `greet` recebe um `decorator` que força um delay antes de executar o método em sí:
+
+```javascript
+function delay(ms: number) {
+    return (target: any, key: string, descriptor: PropertyDescriptor) => {
+        const originalMethod = descriptor.value;
+
+        descriptor.value = function (...args) {
+            setTimeout(() => {
+                originalMethod.apply(this, ...args);
+            }, ms);
+
+            return descriptor;
+        }
+    }
+}
+
+class Greeter {
+    greeting: string;
+
+    constructor(g: string) {
+        this.greeting = g;
+    }
+
+    // Cumprimenta depois de um determiado tempo
+    @delay(2000)
+    greet() {
+        console.log(this.greeting);
+    }
+}
+
+const pessoa = new Greeter('Good morning!');
+pessoa.greet();
+```
+
+Assim como os decorators anteriores, o `method decorator` também recebe `target` e `key`, mas também recebe `descripton`, que contém as assinaturas do método original.
+
 # Conclusão
 
 O uso do TypeScript trás uma série de benefícios ao JavaScript. A fluência na linguagem só vai acontecer a partir do momento que você começar a utiliza-lo, e ver como é bom ter um controle maior sobre os dados que entram e saem do seu sistema. Como toda tecnologia é necessário praticar e aplicar.
@@ -1000,18 +1157,19 @@ Se você ja programa em JavaScript, a curva de adaptação é pequena, e é algo
 
 Para concluir, os tópicos que abordamos no post foram:
 
-- Por que usar TypeScript?;
-- Primeiro código, compilação;
-- TSConfig;
-- Recursos da linguagem - Types;
-- Type Inference;
-- Type Aliases e Union;
-- Classes;
-- TypeScript Accessors;
-- Classes abstratas;
-- Interfaces;
-- Generics;
-- Type Utilities.
+- [Por que usar TypeScript?](#por-que-usar-typescript);
+- [Primeiro código, compilação](#primeiro-código-em-typescript);
+- [TSConfig](#tsconfig);
+- [Recursos da linguagem - Types](#recursos-da-linguagem---types);
+- [Type Inference](#type-inference);
+- [Type Aliases e Union](#type-aliases-e-union);
+- [Classes](#classes);
+- [TypeScript Accessors](#type-acessors);
+- [Classes abstratas](#classes-abstratas);
+- [Interfaces](#interfaces);
+- [Generics](#generics);
+- [Type Utilities](#type-utilities);
+- [Decorators](#decorators).
 
 Você pode conferir o código produzido durante a escrita do artigo no meu [Github](https://github.com/maiconrs95/starting-typescript).
 
