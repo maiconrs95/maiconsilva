@@ -59,9 +59,7 @@ Pronto, temos nosso primeiro shell script.
 
 ### Scripts executáveis
 
-Aprendemos a executar um script prefixado de bash, que é o responsável por interpretar os comandos dentro do nosso arquivo, mas se tentarmos simplesmente executar o arquivos pelo nome, ele não será executado.
-
->  `./` é usado para indicar que arquivo está no diretório atual
+Aprendemos a executar um script prefixado de bash, que é o responsável por interpretar os comandos dentro do nosso arquivo, mas se tentarmos simplesmente executar o arquivo pelo nome, ele não será executado.
 
 ```shell
 ./hello-world
@@ -69,7 +67,9 @@ Aprendemos a executar um script prefixado de bash, que é o responsável por int
 # Output: bash: ./hello-world: Permissão negada
 ```
 
-Para executar um arquivo diretamente, precisaremos alterar as permissões e permitir que o script seja executado pelo usuário. `chmod` é um comando que altera as permissões em um arquivo e `+x` adiciona direitos de execução ao script.
+>  `./` é usado para indicar que arquivo está no diretório atual
+
+Para que o script possa ser executado pelo nome `./file`, é necessário a permissão de execução no arquivo. `chmod` é o comando usado para alterar permissões e `+x` adiciona direitos de execução ao script.
 
 ```shell
 chmod +x hello-world
