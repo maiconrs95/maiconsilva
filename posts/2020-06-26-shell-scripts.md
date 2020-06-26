@@ -533,6 +533,8 @@ Com shell scripts podemos instalar programas, realizar backups, executar tarefas
 
 Um caso de uso bem legal é criar um script para preparar seu ambiente, e não ter que ficar instalando e configurando a máquina sempre que precisar formatar.
 
+Você pode conferir o código produzido durante a escrita do artigo no meu [Github](https://github.com/maiconrs95/shell-scripts).
+
 ## Agradecimentos
 
 - https://www.taniarascia.com/how-to-create-and-use-bash-scripts/
