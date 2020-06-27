@@ -5,7 +5,6 @@ import SEO from '../components/seo';
 
 import { MainContent } from '../styles/base';
 
-
 function AboutPage() {
     return (
         <Layout>
@@ -16,40 +15,68 @@ function AboutPage() {
 
             <MainContent>
                 <h1>Sobre mim</h1>
-                <p>
-                    Eu sou Maicon, 24, from Brazil/SP e desenvolvedor web.
+                <p>Maicon, 24 anos, São Paulo - Brasil.</p>
 
-                    Criei esse blog a fim de documentar e compartilhar tudo o que eu aprendo.
+                <p>
+                    Desenvolvedor web com foco em entregar produtos de alta
+                    qualidade.
                 </p>
 
                 <p>
-                    Me formei em Análise e Desenvolvimento de Sistemas na UMC, em 2018.
+                    Gosto de trabalhar em equipe e em projetos desafiadores,
+                    pois isso me dá a oportunidade de estar em constante
+                    evolução.
                 </p>
 
                 <p>
-                    Escolhi o desenvolvimento pelo "poder da criação" e quanto mais eu procuro aprender sobre essa área, mais apaixonado
-                    eu fico.
+                    Trabalhar ideias, desenvolver produtos e escrever código faz
+                    parte da minha rotina, por isso eu sempre busco as melhores
+                    práticas para resolver problemas utilizando tecnologia.
                 </p>
 
-                <h2>Habilidades</h2>
+                <p>
+                    Atualmente escrevo aqui no meu blog como forma de documentar
+                    o que aprendo, e também como um meio de compartilhar
+                    conhecimento.
+                </p>
+
+                <p>
+                    Trabalho como desenvolvedor web a mais ou menos 3 anos, e
+                    nesse período estive presente em projetos como websites,
+                    sistemas de gestão, sac, agendamento, backoffice, backstages
+                    etc.
+                </p>
+
+                <p>
+                    Também trabalhei em projetos para o Burger King, Leroy
+                    Merlin, Essilor, Mamy Poko e atualmente trabalho para a
+                    Ingresse.
+                </p>
+
+                <h2>Skills</h2>
 
                 <ul>
                     <li>HTML</li>
                     <li>CSS (Stylus, Sass, Less, PostCSS)</li>
-                    <li>JavaScript (Design Patterns, ES6/7+)</li>
+                    <li>CSS Frameworks</li>
                     <li>Design Responsivo (Mobile First)</li>
-                    <li>Css Frameworks</li>
-                    <li>ReactJS / React Native / Redux / Flux</li>
+                    <li>JavaScript (Design Patterns, ES6/7+)</li>
+                    <li>TypeScript</li>
+                    <li>
+                        ReactJS / React Native / Hooks / Redux / Flux / Context
+                        API / CSS-in-JS
+                    </li>
                     <li>NodeJS</li>
                     <li>Git</li>
                     <li>MySQL - MongoDB</li>
-                    <li>Scrum</li>
+                    <li>SCRUM</li>
                 </ul>
 
                 <h2>Contato</h2>
 
                 <p>
-                    Você pode entrar em contato comigo através de qualquer uma das minhas redes sociais.
+                    Você pode entrar em contato comigo através de qualquer uma
+                    das minhas redes sociais.
                 </p>
 
                 <SocialLinks />
