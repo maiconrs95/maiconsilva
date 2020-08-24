@@ -59,7 +59,7 @@ Então, vamos aos itens:
 ```typescript
 const toJSON = (data: Response) => data.json();
 
-export interface Repositorie {
+export interface Repository {
   id: number;
   name: string;
 }
@@ -69,7 +69,7 @@ interface Props {
 }
 
 const useUserRepositories = ({ username }: Props) => {
-  const [repositories, setRepositories] = useState<Repositorie[]>([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -92,7 +92,7 @@ const useUserRepositories = ({ username }: Props) => {
 Para esse item, basta refatorarmos o `useEffect` onde a busca acontece e expor o status de `loading` no nosso hook:
 
 ```typescript
-  const [repositories, setRepositories] = useState<Repositorie[]>([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -134,7 +134,7 @@ Essa função é reponsável pela regra:
 - Excluir um repositório através de um `id` fornecido;
 
 ```typescript
-const removeRepositorie = (prevState: Repositorie[], repoID: number) =>
+const removeRepository = (prevState: Repository[], repoID: number) =>
   prevState.filter((repo) => repo.id !== repoID);
 ```
 
@@ -144,7 +144,7 @@ Agora precisamos utilizar ela no nosso hook pra manipular o estado de repositór
   ...
 
   const handleRemove = (repoID: number) => {
-    setRepositories(removeRepositorie(repositories, repoID));
+    setRepositories(removeRepository(repositories, repoID));
   };
 
   ...
@@ -167,20 +167,20 @@ Da mesma forma que fizemos no método de exclusão, aqui vamos criar uma funçã
 - Atualizar um repositório baseado em um `id`.
 
 ```typescript
-const updateRepositorie = (
-  prevState: Repositorie[],
-  repositorie: Repositorie
+const updateRepository = (
+  prevState: Repository[],
+  repository: Repository
 ) => {
-  if (!repositorie.id) {
+  if (!repository.id) {
     throw new Error("id é obrigatório");
   }
 
-  if (!repositorie.name) {
+  if (!repository.name) {
     throw new Error("Name é obrigatório");
   }
 
   return prevState.map((repo) =>
-    repo.id === repositorie.id ? repositorie : repo
+    repo.id === repository.id ? repository : repo
   );
 };
 ```
@@ -190,9 +190,9 @@ Agora precisamos utiliza-la em nosso hook, e também expor ela pra qualquer dev 
 ```typescript
   ...
 
-  const handleUpdate = (repositorie: Repositorie) => {
+  const handleUpdate = (repository: Repository) => {
     try {
-      setRepositories(updateRepositorie(repositories, repositorie));
+      setRepositories(updateRepository(repositories, repository));
     } catch (e) {
       alert(e);
     }
@@ -217,7 +217,7 @@ import { useState, useEffect } from "react";
 
 const toJSON = (data: Response) => data.json();
 
-export interface Repositorie {
+export interface Repository {
   id: number;
   name: string;
 }
@@ -226,28 +226,28 @@ interface Props {
   username: string;
 }
 
-const removeRepositorie = (prevState: Repositorie[], repoID: number) =>
+const removeRepository = (prevState: Repository[], repoID: number) =>
   prevState.filter((repo) => repo.id !== repoID);
 
-const updateRepositorie = (
-  prevState: Repositorie[],
-  repositorie: Repositorie
+const updateRepository = (
+  prevState: Repository[],
+  repository: Repository
 ) => {
-  if (!repositorie.id) {
+  if (!repository.id) {
     throw new Error("id é obrigatório");
   }
 
-  if (!repositorie.name) {
+  if (!repository.name) {
     throw new Error("Name é obrigatório");
   }
 
   return prevState.map((repo) =>
-    repo.id === repositorie.id ? repositorie : repo
+    repo.id === repository.id ? repository : repo
   );
 };
 
 const useUserRepositories = ({ username }: Props) => {
-  const [repositories, setRepositories] = useState<Repositorie[]>([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -267,12 +267,12 @@ const useUserRepositories = ({ username }: Props) => {
   }, [username]);
 
   const handleRemove = (repoID: number) => {
-    setRepositories(removeRepositorie(repositories, repoID));
+    setRepositories(removeRepository(repositories, repoID));
   };
 
-  const handleUpdate = (repositorie: Repositorie) => {
+  const handleUpdate = (repository: Repository) => {
     try {
-      setRepositories(updateRepositorie(repositories, repositorie));
+      setRepositories(updateRepository(repositories, repository));
     } catch (e) {
       alert(e);
     }
@@ -305,14 +305,14 @@ De forma mais resumida, precisamos de um componente para renderizar os repositó
 Aqui eu vou separar em dois componentes.
 
 - `UserRepositories`: A lista de repositórios, que vai renderizar os dados, e também os botões para executar as ações de excluir e atualizar repositórios;
-- `EditRepositorie`: Um componente de formulário, que recebe o repositório que deve ser atualizado, e no submit executa nosso método de update fornecido pelo hook `useUserRepositories`.
+- `EditRepository`: Um componente de formulário, que recebe o repositório que deve ser atualizado, e no submit executa nosso método de update fornecido pelo hook `useUserRepositories`.
 
 ### UserRepositories
 
 ```typescript
 import React, { useState } from "react";
 
-import EditRepositorie from "../EditRepositorie";
+import EditRepository from "../EditRepository";
 import useUserRepositories from "../../hooks/useUserRepositories";
 
 const UserRepositories = () => {
@@ -326,7 +326,7 @@ const UserRepositories = () => {
     username: "maiconrs95"
   });
 
-  const [editableRepositorie, setEditableRepositorie] = useState({});
+  const [editableRepository, setEditableRepository] = useState({});
 
   if (loading) {
     return <p>Carregando repositórios</p>;
@@ -337,9 +337,9 @@ const UserRepositories = () => {
       <h1>Repositórios de {username}</h1>
 
       <div>
-        <EditRepositorie
-          repositorie={editableRepositorie}
-          cancelEdit={() => setEditableRepositorie({})}
+        <EditRepository
+          repository={editableRepository}
+          cancelEdit={() => setEditableRepository({})}
           onSubmit={handleUpdate}
         />
 
@@ -356,7 +356,7 @@ const UserRepositories = () => {
                 </button>
                 <button
                   className="update"
-                  onClick={() => setEditableRepositorie(repo)}
+                  onClick={() => setEditableRepository(repo)}
                 >
                   Editar
                 </button>
@@ -372,36 +372,36 @@ const UserRepositories = () => {
 export default UserRepositories;
 ```
 
-### EditRepositorie
+### EditRepository
 
 ```typescript
 import React, { useRef, FormEvent, useEffect } from "react";
 
-import { Repositorie } from "../../hooks/useUserRepositories";
+import { Repository } from "../../hooks/useUserRepositories";
 
 interface Props {
-  repositorie: Repositorie;
+  repository: Repository;
   cancelEdit: () => void;
-  onSubmit: (repo: Repositorie | object) => void;
+  onSubmit: (repo: Repository | object) => void;
 }
 
-const EditRepositorie: React.FC<Props> = ({
-  repositorie,
+const EditRepository: React.FC<Props> = ({
+  repository,
   onSubmit,
   cancelEdit
 }) => {
   const inputRef = useRef(null);
-  const disabledActions = !repositorie.id || !repositorie.name;
+  const disabledActions = !repository.id || !repository.name;
 
   useEffect(() => {
-    inputRef.current.value = repositorie.name || "";
-  }, [repositorie]);
+    inputRef.current.value = repository.name || "";
+  }, [repository]);
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
 
     const repo = {
-      id: repositorie.id,
+      id: repository.id,
       name: inputRef.current.value
     };
 
@@ -410,8 +410,8 @@ const EditRepositorie: React.FC<Props> = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      {repositorie.name ? (
-        <p>Editar: {repositorie.name}</p>
+      {repository.name ? (
+        <p>Editar: {repository.name}</p>
       ) : (
         <p>Selecione um repositório para editar</p>
       )}
@@ -427,7 +427,7 @@ const EditRepositorie: React.FC<Props> = ({
   );
 };
 
-export default EditRepositorie;
+export default EditRepository;
 ```
 
 ### Componente renderizado
